@@ -1,0 +1,23 @@
+# Your task is to sort a given string. Each word in the string will contain a single number.
+# This number is the position the word should have in the result.
+
+# Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+
+# If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
+
+import re
+def order(sentence):
+    word_list = sentence.split(' ') # get list of words in sentence
+    updated_order = [] # used to store updated order of words and the words themselves
+    updated_list = word_list.copy() # used to reconstruct sentences with updated order
+    # loop over each word in the sentence
+    for word in word_list:
+        # if empty string, then no need to modify word_list
+        if word != '':
+            word_index = int(re.findall(r'\d+', word)[0]) - 1 # 0 indexing in python
+            updated_order.append((word_index, word)) # store as tuples of (index, word) pair
+    # update the copy of word_list according to new order 
+    for index, word in sorted(updated_order):
+        updated_list[index] = word
+    # reconstruct and return sentence
+    return ' '.join(updated_list)
