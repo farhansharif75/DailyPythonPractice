@@ -1,0 +1,13 @@
+# Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+
+# Solution 1 (my attempt)
+def create_phone_number(n):
+    if len(n) != 10:
+        raise ValueError("Expected input array to have 10 elements")
+    return f"({n[0]}{n[1]}{n[2]}) {n[3]}{n[4]}{n[5]}-{n[6]}{n[7]}{n[8]}{n[9]}"
+
+# Solution 2 (better, from community solutions)
+def create_phone_number(n):
+    if len(n) != 10:
+        raise ValueError("Expected input array to have 10 elements")
+    return "({}{}{}) {}{}{}-{}{}{}{}".format(*n)
