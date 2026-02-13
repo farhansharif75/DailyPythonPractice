@@ -1,0 +1,2 @@
+Subfolder for problems from the Codewars platform. Problems are community-generated and solutions are checked via fixed and randomised tests upon submission.
+Most solutions included here will be the author's, though if better solutions have been submitted by the community on Codewars (in terms of optimisation, syntax, and logic) this will be mentioned.
