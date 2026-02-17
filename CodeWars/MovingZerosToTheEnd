@@ -1,0 +1,9 @@
+# Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+
+from collections import Counter
+def move_zeros(lst):
+    counts = Counter(lst)
+    list_filtered = [num for num in lst if num != 0]
+    for i in range(counts[0]):
+        list_filtered.append(0)
+    return list_filtered
