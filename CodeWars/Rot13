@@ -1,0 +1,23 @@
+# ROT13 is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet. ROT13 is an example of the Caesar cipher.
+
+# Create a function that takes a string and returns the string ciphered with Rot13.
+# If there are numbers or special characters included in the string, they should be returned as they are.
+# Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".
+
+# Please note that using encode is considered cheating.
+
+import string
+def shift_letter(char, amount):
+    # Check if char is an upper/lowercase alphabet
+    if not char.isalpha():
+        return char
+    # Get index of char from a reference list, use lower case for standardisation
+    char_index = list(string.ascii_lowercase).index(char.lower())
+    # Get a shifted index, accounting for a rollover if it lies beyond the size of the reference list
+    shifted_index = char_index + amount - len(string.ascii_uppercase) * ((char_index + amount) // len(string.ascii_uppercase)) 
+    new_char = string.ascii_lowercase[shifted_index]
+    return new_char.upper() if char in string.ascii_uppercase else new_char
+
+def rot13(message):
+    words = list(message)
+    return ''.join([shift_letter(letter, 13) for letter in words])
